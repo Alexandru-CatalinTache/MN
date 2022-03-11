@@ -1,0 +1,64 @@
+ 
+  TACHE ALEXANDRU-CATALIN 315CD
+  
+                           TEMA METODE NUMERICE
+
+ Iterative:
+
+-> deschidem fisierul
+-> citim nr de valori din fisier
+-> initializez matricea A cu zerouri
+-> realizez vectorul v initial de tip linie cu valori de 1, iar apoi il transpun pentru a avea vector coloana
+->creez lista de adiacenta in care pt elementele ce au coloana identica cu linia ia valoarea 0, restul iau valorile 1
+-> inchid fisierul
+->calculez numarul de linkuri al fiecarei pagini
+-> initializez matricea K cu valori de zero
+-> matricea inversa inv va avea elementele de pe pozitia i,i inversul elementului din vectorul linkuri
+-> matricea M are valoarea lui inv inmultita cu matricea de adiacenta si o transpun
+->calculez R la pasul 0
+->reiterez atata timp cat norma din pasul curent si cel precedent este mai mare sau egala cu eroarea aleasa
+->la iesirea din while valoarea corecta este cea ramasa in R0
+
+  Algebraic
+
+->deschid fisierul
+-> citesc numarul de valori
+->initializez matricea A cu zerouri
+->realizez vectorul coloana v
+->creez lista de adiacenta
+->inchid fisierul
+->calculez numarul de linkuri si matricea K
+->calculez matricea M ca fiind inmultirea dintre vectorul inve si matricea A, apoi transpun matricea M
+->initializez matricea identitate I
+->calculez matricea B
+-> realizez inversa matricei B folosind algoritmul Gram-Schmidt
+-> in final calculez R conform formulei finale
+
+  PR_Inv
+
+->functia in care realizez algoritmul Gram-Schmidt
+->initializez Q si R cu zerouri
+->calculez valorile aflate pe diagonala principala a matricei R ca reprezentand norma a elementelor matricei A,primita de functie, aflate pe coloana i
+->aplic in interiorul forului procedeul de ortodiagonlizare
+->initializez matricile M si I (cea de identitate)
+-> in ultimul for calculez in functie de x, obtinut prin apelarea functiei SST, matricea B, ce reprezinta inversa matricei A
+
+  SST
+
+->functia rezolva un sistem superior triunghiular
+->aflu marimile matricei A
+-> la trecerea la o noua linie a matricei A initializez valoarea variabilei sum cu 0
+->calculez x, ce va oferi elementele matricei B de la functia PR_Inv
+
+  PageRank
+
+-> recitesc datele din fisier pentru a ajunge la val1 si val2
+->initializez fisierul File, de output si folosesc functia fprintf pt a scrie in fisier rezultatele primite de functiile Iterative si Algebraic pe care le retin in valorile R1 si R2
+-> afisez pozitia i, valoarea v(i) ce reprezinta nodul al carui PageRank este PR1(i), reprezentand clasarea respectivului grad de apartenenta, iar prin variabila y afisez gradul de apartenenta
+->la final inchid si fisierul de out
+
+  Apartenenta
+
+->conform functiei u(x), prezentate in cerinta temei afisez pentru y urmatoarele valori: -0, daca x este in intervalul 0,val1;
+                             - 1, daca x este in intervalul val2,1;
+                             - ax+b, daca x este intre val1 si val2.
